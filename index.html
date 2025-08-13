@@ -12,8 +12,47 @@
     header h1 { font-size: 2.8rem; }
     header p { font-size: 1.2rem; margin-top: 10px; }
     nav { background: #333; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-    nav a:hover { color: #00e0ff; }
+    nav a { 
+      color: white; 
+      margin: 0 15px; 
+      text-decoration: none; 
+      font-weight: bold;
+      padding: 8px 18px;
+      border-radius: 6px;
+      position: relative;
+      transition: 
+        background 0.3s cubic-bezier(.7,.2,.17,1),
+        color 0.3s cubic-bezier(.7,.2,.17,1),
+        transform 0.2s cubic-bezier(.7,.2,.17,1),
+        box-shadow 0.3s cubic-bezier(.7,.2,.17,1);
+      overflow: hidden;
+      z-index: 1;
+    }
+    nav a::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      border-radius: 100px;
+      z-index: -1;
+      transition: all 0.4s cubic-bezier(.7,.2,.17,1);
+      transform: translate(-50%, -50%);
+      opacity: 0.8;
+    }
+    nav a:hover, nav a:focus {
+      color: #fff;
+      background: #2575fc;
+      transform: translateY(-3px) scale(1.08) rotate(-2deg);
+      box-shadow: 0 6px 24px rgba(106, 17, 203, 0.18);
+    }
+    nav a:hover::before, nav a:focus::before {
+      width: 180%;
+      height: 380%;
+      opacity: 0.8;
+    }
     section { max-width: 1000px; margin: auto; padding: 50px 20px; }
     h2 { color: #444; margin-bottom: 20px; font-size: 2rem; }
     .skills span { display: inline-block; background: #2575fc; color: white; padding: 8px 15px; margin: 5px; border-radius: 10px; font-size: 0.9rem; }
@@ -43,7 +82,7 @@
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Hi! I'm Siddartha, a B.Tech CSE student with a diploma background in Civil Engineering. I'm passionate about crafting engaging user interfaces as a Frontend Developer and building powerful backend solutions with Python. I enjoy solving real-world problems through clean code and seamless design. I've completed certifications in Full-Stack Web Development, IBM Cloud, and Cisco Networking, and I'm constantly exploring new tools and technologies to sharpen my skills</p>
+    <p>Hi! I'm Siddartha, a B.Tech CSE student with a diploma background in Civil Engineering. I'm passionate about crafting engaging user interfaces as a Frontend Developer and building powerful back[...]
   </section>
 
   <section id="skills">
